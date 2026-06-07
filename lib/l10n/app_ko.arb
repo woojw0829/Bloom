@@ -385,5 +385,27 @@
   "safetyBlockInfoTitle": "차단 안내",
   "safetyBlockInfoBody": "차단하면 서로를 발견하거나 매치하고 메시지를 보낼 수 없어요.",
   "profileSafetyTile": "안전 센터",
-  "profileSafetySubtitle": "차단 사용자 관리 및 안전 설정"
+  "profileSafetySubtitle": "차단 사용자 관리 및 안전 설정",
+
+  "verificationTitle": "인증",
+  "verificationProfileTile": "인증",
+  "verificationProfileSubtitle": "프로필 사진 인증하기",
+
+  "photoVerificationTitle": "사진 인증",
+  "photoVerificationDescription": "사진 인증은 Bloom 커뮤니티의 신뢰를 높이는 데 도움이 돼요.",
+  "photoVerificationPrivacyNote": "인증 사진은 검토 목적으로만 사용되며 프로필에 표시되지 않아요.",
+  "photoVerificationPickPhoto": "사진 선택",
+  "photoVerificationChangePhoto": "사진 변경",
+  "photoVerificationSubmit": "인증 요청하기",
+  "photoVerificationSubmitting": "제출 중…",
+  "photoVerificationSubmitted": "인증 요청이 접수됐어요.",
+  "photoVerificationPendingTitle": "검토 중이에요",
+  "photoVerificationPendingBody": "인증 요청을 검토하고 있어요.",
+  "photoVerificationApprovedTitle": "인증 완료",
+  "photoVerificationApprovedBody": "사진 인증이 완료됐어요.",
+  "photoVerificationRejectedTitle": "인증이 거절됐어요",
+  "photoVerificationRejectedBody": "안내 내용을 확인하고 다시 제출해 주세요.",
+  "photoVerificationFailed": "인증 요청을 제출하지 못했어요. 다시 시도해 주세요.",
+  "photoVerificationImageRequired": "인증에 사용할 사진을 선택해 주세요.",
+  "photoVerificationAlreadyPending": "이미 검토 중인 인증 요청이 있어요."
 }

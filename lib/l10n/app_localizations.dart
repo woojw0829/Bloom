@@ -2011,6 +2011,126 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Manage blocked users and safety options'**
   String get profileSafetySubtitle;
+
+  /// No description provided for @verificationTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Verification'**
+  String get verificationTitle;
+
+  /// No description provided for @verificationProfileTile.
+  ///
+  /// In en, this message translates to:
+  /// **'Verification'**
+  String get verificationProfileTile;
+
+  /// No description provided for @verificationProfileSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Verify your profile photo'**
+  String get verificationProfileSubtitle;
+
+  /// No description provided for @photoVerificationTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Photo Verification'**
+  String get photoVerificationTitle;
+
+  /// No description provided for @photoVerificationDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Photo verification helps build trust in the Bloom community.'**
+  String get photoVerificationDescription;
+
+  /// No description provided for @photoVerificationPrivacyNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Your verification photo is used only for review and is not shown on your profile.'**
+  String get photoVerificationPrivacyNote;
+
+  /// No description provided for @photoVerificationPickPhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Photo'**
+  String get photoVerificationPickPhoto;
+
+  /// No description provided for @photoVerificationChangePhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Change Photo'**
+  String get photoVerificationChangePhoto;
+
+  /// No description provided for @photoVerificationSubmit.
+  ///
+  /// In en, this message translates to:
+  /// **'Submit Verification Request'**
+  String get photoVerificationSubmit;
+
+  /// No description provided for @photoVerificationSubmitting.
+  ///
+  /// In en, this message translates to:
+  /// **'Submitting…'**
+  String get photoVerificationSubmitting;
+
+  /// No description provided for @photoVerificationSubmitted.
+  ///
+  /// In en, this message translates to:
+  /// **'Verification request submitted.'**
+  String get photoVerificationSubmitted;
+
+  /// No description provided for @photoVerificationPendingTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Under Review'**
+  String get photoVerificationPendingTitle;
+
+  /// No description provided for @photoVerificationPendingBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Your verification request is under review.'**
+  String get photoVerificationPendingBody;
+
+  /// No description provided for @photoVerificationApprovedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Verified'**
+  String get photoVerificationApprovedTitle;
+
+  /// No description provided for @photoVerificationApprovedBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Your photo verification is complete.'**
+  String get photoVerificationApprovedBody;
+
+  /// No description provided for @photoVerificationRejectedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Verification Declined'**
+  String get photoVerificationRejectedTitle;
+
+  /// No description provided for @photoVerificationRejectedBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Please review the feedback and resubmit.'**
+  String get photoVerificationRejectedBody;
+
+  /// No description provided for @photoVerificationFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t submit verification request. Please try again.'**
+  String get photoVerificationFailed;
+
+  /// No description provided for @photoVerificationImageRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Please select a photo for verification.'**
+  String get photoVerificationImageRequired;
+
+  /// No description provided for @photoVerificationAlreadyPending.
+  ///
+  /// In en, this message translates to:
+  /// **'You already have a pending verification request.'**
+  String get photoVerificationAlreadyPending;
 }
 
 class _AppLocalizationsDelegate

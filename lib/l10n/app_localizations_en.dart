@@ -1037,4 +1037,72 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get profileSafetySubtitle => 'Manage blocked users and safety options';
+
+  @override
+  String get verificationTitle => 'Verification';
+
+  @override
+  String get verificationProfileTile => 'Verification';
+
+  @override
+  String get verificationProfileSubtitle => 'Verify your profile photo';
+
+  @override
+  String get photoVerificationTitle => 'Photo Verification';
+
+  @override
+  String get photoVerificationDescription =>
+      'Photo verification helps build trust in the Bloom community.';
+
+  @override
+  String get photoVerificationPrivacyNote =>
+      'Your verification photo is used only for review and is not shown on your profile.';
+
+  @override
+  String get photoVerificationPickPhoto => 'Select Photo';
+
+  @override
+  String get photoVerificationChangePhoto => 'Change Photo';
+
+  @override
+  String get photoVerificationSubmit => 'Submit Verification Request';
+
+  @override
+  String get photoVerificationSubmitting => 'Submitting…';
+
+  @override
+  String get photoVerificationSubmitted => 'Verification request submitted.';
+
+  @override
+  String get photoVerificationPendingTitle => 'Under Review';
+
+  @override
+  String get photoVerificationPendingBody =>
+      'Your verification request is under review.';
+
+  @override
+  String get photoVerificationApprovedTitle => 'Verified';
+
+  @override
+  String get photoVerificationApprovedBody =>
+      'Your photo verification is complete.';
+
+  @override
+  String get photoVerificationRejectedTitle => 'Verification Declined';
+
+  @override
+  String get photoVerificationRejectedBody =>
+      'Please review the feedback and resubmit.';
+
+  @override
+  String get photoVerificationFailed =>
+      'Couldn\'t submit verification request. Please try again.';
+
+  @override
+  String get photoVerificationImageRequired =>
+      'Please select a photo for verification.';
+
+  @override
+  String get photoVerificationAlreadyPending =>
+      'You already have a pending verification request.';
 }

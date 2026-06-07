@@ -24,6 +24,7 @@ import '../../features/profile/presentation/screens/privacy_settings_screen.dart
 import '../../features/profile/presentation/screens/profile_photo_management_screen.dart';
 import '../../features/profile/presentation/screens/profile_screen.dart';
 import '../../features/safety/presentation/screens/safety_center_screen.dart';
+import '../../features/verification/presentation/screens/photo_verification_screen.dart';
 
 // ── Route path constants ──────────────────────────────────────────────────────
 
@@ -46,6 +47,7 @@ abstract final class AppRoutes {
   static const String profileLocation              = '/profile/location';
   static const String profileLanguage              = '/profile/language';
   static const String profileSafety               = '/profile/safety';
+  static const String profileVerification         = '/profile/verification';
   static const String exploreMap                   = '/explore/map';
   static const String chatDetail                   = '/chat/:matchId';
 }
@@ -159,6 +161,10 @@ final routerProvider = Provider<GoRouter>((ref) {
                 GoRoute(
                   path: 'safety',
                   builder: (_, _) => const SafetyCenterScreen(),
+                ),
+                GoRoute(
+                  path: 'verification',
+                  builder: (_, _) => const PhotoVerificationScreen(),
                 ),
               ],
             ),

@@ -422,5 +422,27 @@
   "safetyBlockInfoTitle": "About blocking",
   "safetyBlockInfoBody": "Blocking prevents discovery, matching, and messaging.",
   "profileSafetyTile": "Safety Center",
-  "profileSafetySubtitle": "Manage blocked users and safety options"
+  "profileSafetySubtitle": "Manage blocked users and safety options",
+
+  "verificationTitle": "Verification",
+  "verificationProfileTile": "Verification",
+  "verificationProfileSubtitle": "Verify your profile photo",
+
+  "photoVerificationTitle": "Photo Verification",
+  "photoVerificationDescription": "Photo verification helps build trust in the Bloom community.",
+  "photoVerificationPrivacyNote": "Your verification photo is used only for review and is not shown on your profile.",
+  "photoVerificationPickPhoto": "Select Photo",
+  "photoVerificationChangePhoto": "Change Photo",
+  "photoVerificationSubmit": "Submit Verification Request",
+  "photoVerificationSubmitting": "Submitting…",
+  "photoVerificationSubmitted": "Verification request submitted.",
+  "photoVerificationPendingTitle": "Under Review",
+  "photoVerificationPendingBody": "Your verification request is under review.",
+  "photoVerificationApprovedTitle": "Verified",
+  "photoVerificationApprovedBody": "Your photo verification is complete.",
+  "photoVerificationRejectedTitle": "Verification Declined",
+  "photoVerificationRejectedBody": "Please review the feedback and resubmit.",
+  "photoVerificationFailed": "Couldn't submit verification request. Please try again.",
+  "photoVerificationImageRequired": "Please select a photo for verification.",
+  "photoVerificationAlreadyPending": "You already have a pending verification request."
 }

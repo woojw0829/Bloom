@@ -155,6 +155,11 @@ class _ProfileContent extends StatelessWidget {
                     subtitle: l10n.profileLanguageSubtitle,
                     onTap: () => context.push(AppRoutes.profileLanguage),
                   ),
+                  _VerificationTile(
+                    label: l10n.verificationProfileTile,
+                    subtitle: l10n.verificationProfileSubtitle,
+                    onTap: () => context.push(AppRoutes.profileVerification),
+                  ),
                   _SafetyTile(
                     label: l10n.profileSafetyTile,
                     subtitle: l10n.profileSafetySubtitle,
@@ -450,6 +455,39 @@ class _LanguageTile extends StatelessWidget {
     return ListTile(
       leading: const Icon(
         Icons.language_outlined,
+        color: AppColors.textSecondary,
+      ),
+      title: Text(label, style: AppTypography.body),
+      subtitle: Text(
+        subtitle,
+        style: AppTypography.caption.copyWith(color: AppColors.textSecondary),
+      ),
+      trailing: const Icon(
+        Icons.chevron_right,
+        color: AppColors.textSecondary,
+      ),
+      onTap: onTap,
+      contentPadding: EdgeInsets.zero,
+    );
+  }
+}
+
+class _VerificationTile extends StatelessWidget {
+  const _VerificationTile({
+    required this.label,
+    required this.subtitle,
+    required this.onTap,
+  });
+
+  final String label;
+  final String subtitle;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      leading: const Icon(
+        Icons.verified_user_outlined,
         color: AppColors.textSecondary,
       ),
       title: Text(label, style: AppTypography.body),

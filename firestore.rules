@@ -254,10 +254,24 @@ service cloud.firestore {
       allow read: if isSignedIn() &&
                      resource.data.userId == request.auth.uid;
 
-      // Owner may submit one request at a time; status must start as pending.
+      // Owner may submit a photo verification request.
+      // - Only the six allowed fields may be set (no governmentIdImageUrl,
+      //   reviewedBy, or reviewedAt from the client).
+      // - selfieImageUrl must be the exact Storage path for this request,
+      //   preventing clients from forging paths for other users or requests.
       allow create: if isSignedIn() &&
-                       request.resource.data.userId  == request.auth.uid &&
-                       request.resource.data.status  == 'pending';
+                       isActive() &&
+                       request.resource.data.keys().hasOnly([
+                         'id', 'userId', 'verificationType',
+                         'selfieImageUrl', 'status', 'createdAt'
+                       ]) &&
+                       request.resource.data.id == requestId &&
+                       request.resource.data.userId == request.auth.uid &&
+                       request.resource.data.verificationType == 'photo' &&
+                       request.resource.data.status == 'pending' &&
+                       request.resource.data.selfieImageUrl is string &&
+                       request.resource.data.selfieImageUrl ==
+                         'verification_requests/' + request.auth.uid + '/' + requestId + '/selfie.jpg';
 
       // Status transitions are handled by Cloud Functions / admin only.
       allow update, delete: if false;

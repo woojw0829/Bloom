@@ -994,4 +994,66 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get profileSafetySubtitle => '차단 사용자 관리 및 안전 설정';
+
+  @override
+  String get verificationTitle => '인증';
+
+  @override
+  String get verificationProfileTile => '인증';
+
+  @override
+  String get verificationProfileSubtitle => '프로필 사진 인증하기';
+
+  @override
+  String get photoVerificationTitle => '사진 인증';
+
+  @override
+  String get photoVerificationDescription =>
+      '사진 인증은 Bloom 커뮤니티의 신뢰를 높이는 데 도움이 돼요.';
+
+  @override
+  String get photoVerificationPrivacyNote =>
+      '인증 사진은 검토 목적으로만 사용되며 프로필에 표시되지 않아요.';
+
+  @override
+  String get photoVerificationPickPhoto => '사진 선택';
+
+  @override
+  String get photoVerificationChangePhoto => '사진 변경';
+
+  @override
+  String get photoVerificationSubmit => '인증 요청하기';
+
+  @override
+  String get photoVerificationSubmitting => '제출 중…';
+
+  @override
+  String get photoVerificationSubmitted => '인증 요청이 접수됐어요.';
+
+  @override
+  String get photoVerificationPendingTitle => '검토 중이에요';
+
+  @override
+  String get photoVerificationPendingBody => '인증 요청을 검토하고 있어요.';
+
+  @override
+  String get photoVerificationApprovedTitle => '인증 완료';
+
+  @override
+  String get photoVerificationApprovedBody => '사진 인증이 완료됐어요.';
+
+  @override
+  String get photoVerificationRejectedTitle => '인증이 거절됐어요';
+
+  @override
+  String get photoVerificationRejectedBody => '안내 내용을 확인하고 다시 제출해 주세요.';
+
+  @override
+  String get photoVerificationFailed => '인증 요청을 제출하지 못했어요. 다시 시도해 주세요.';
+
+  @override
+  String get photoVerificationImageRequired => '인증에 사용할 사진을 선택해 주세요.';
+
+  @override
+  String get photoVerificationAlreadyPending => '이미 검토 중인 인증 요청이 있어요.';
 }
