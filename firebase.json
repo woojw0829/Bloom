@@ -1,0 +1,50 @@
+{
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "functions": {
+    "source": "functions",
+    "ignore": [
+      "node_modules",
+      ".git",
+      "firebase-debug.log",
+      "firebase-debug.*.log"
+    ],
+    "predeploy": [
+      "npm --prefix \"$RESOURCE_DIR\" run build"
+    ]
+  },
+  "storage": [
+    {
+      "rules": "storage.rules",
+      "bucket": "bloom-371e1.firebasestorage.app"
+    }
+  ],
+  "database": [
+    {
+      "instance": "bloom-371e1-default-rtdb",
+      "rules": "database.rules.json"
+    }
+  ],
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "bloom-371e1",
+          "appId": "1:448983161339:android:4d0f370fb0855e088c935e",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "bloom-371e1",
+          "configurations": {
+            "android": "1:448983161339:android:4d0f370fb0855e088c935e",
+            "ios": "1:448983161339:ios:27b741acbf4a84c38c935e"
+          }
+        }
+      }
+    }
+  }
+}

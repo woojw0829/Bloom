@@ -1,0 +1,11 @@
+# Keys.xcconfig.example — commit this file, NOT Keys.xcconfig
+#
+# Copy this file to ios/Flutter/Keys.xcconfig and fill in real values.
+# ios/Flutter/Keys.xcconfig is gitignored and must never be committed.
+#
+# Google Maps SDK for iOS
+# 1. Go to Google Cloud Console → APIs & Services → Credentials
+# 2. Create an API key
+# 3. Restrict it: iOS apps | bundle ID com.wony.bloom | Maps SDK for iOS
+# 4. Paste the key below
+GOOGLE_MAPS_API_KEY=REDACTED_MAPS_IOS_API_KEY

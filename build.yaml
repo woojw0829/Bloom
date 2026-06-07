@@ -1,0 +1,17 @@
+targets:
+  $default:
+    builders:
+      freezed:
+        generate_for:
+          include:
+            - lib/shared/models/**
+            - lib/features/**/domain/**
+            - lib/features/**/data/**
+            - lib/features/**/presentation/providers/**
+      json_serializable:
+        options:
+          explicit_to_json: true
+          include_if_null: false
+      riverpod_generator:
+        options:
+          riverpod_version: 2

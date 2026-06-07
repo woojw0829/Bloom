@@ -1,0 +1,7 @@
+#include "Generated.xcconfig"
+
+// Google Maps SDK for iOS — default empty value so the build succeeds without a key.
+// Map tiles will not render until a real key is supplied in Keys.xcconfig.
+// Keys.xcconfig is gitignored; see Keys.xcconfig.example for setup instructions.
+GOOGLE_MAPS_API_KEY=
+#include? "Keys.xcconfig"

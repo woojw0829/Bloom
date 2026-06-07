@@ -1,0 +1,426 @@
+{
+  "@@locale": "en",
+
+  "saveChanges": "Save Changes",
+  "continueAction": "Continue",
+  "addPhoto": "Add photo",
+  "openAppSettings": "Open App Settings",
+  "openLocationSettings": "Open Location Settings",
+
+  "loginTagline": "Be yourself. Find connection.",
+  "loginEmail": "Email",
+  "loginEmailHint": "you@example.com",
+  "loginPassword": "Password",
+  "loginForgotPassword": "Forgot password?",
+  "loginSignIn": "Sign In",
+  "loginOr": "or",
+  "loginContinueWithGoogle": "Continue with Google",
+  "loginContinueWithApple": "Continue with Apple",
+  "loginNoAccount": "Don't have an account?",
+  "loginSignUp": "Sign up",
+  "loginEmailRequired": "Please enter your email.",
+  "loginEmailInvalid": "Please enter a valid email.",
+  "loginPasswordRequired": "Please enter your password.",
+
+  "registerTitle": "Create Account",
+  "registerSubtitle": "Join Bloom today.",
+  "registerPassword": "Password",
+  "registerConfirmPassword": "Confirm Password",
+  "registerCreateAccount": "Create Account",
+  "registerHaveAccount": "Already have an account?",
+  "registerSignIn": "Sign in",
+  "registerPasswordRequired": "Please enter a password.",
+  "registerPasswordTooShort": "Password must be at least 6 characters.",
+  "registerPasswordMismatch": "Passwords do not match.",
+
+  "forgotPasswordTitle": "Reset Password",
+  "forgotPasswordSubtitle": "Enter your email and we'll send you a link to reset your password.",
+  "forgotPasswordSendEmail": "Send Reset Email",
+  "forgotPasswordCheckInbox": "Check your inbox",
+  "forgotPasswordEmailSent": "We've sent a password reset link to your email address.",
+  "forgotPasswordBackToSignIn": "Back to Sign In",
+
+  "onboardingWelcomeTitle": "Welcome to Bloom",
+  "onboardingWelcomeBody": "A safe, inclusive space for the LGBTQ+ community to build real, meaningful connections.",
+  "onboardingGetStarted": "Get Started",
+  "onboardingVerifiedProfiles": "Verified profiles you can trust",
+  "onboardingPrivacyProtected": "Your privacy, protected",
+  "onboardingRealConnections": "Connections that actually matter",
+
+  "onboardingIdentityTitle": "How do you identify?",
+  "onboardingIdentityBody": "This helps us personalise your experience. You can update this anytime.",
+
+  "onboardingAgeTitle": "Your birthdate",
+  "onboardingAgeBody": "You must be 18 or older. Your age is shown on your profile, not your exact birthdate.",
+  "onboardingSelectBirthdate": "Select your birthdate",
+  "onboardingSelectBirthdateHelp": "Select your birthdate",
+  "onboardingAgeTooYoung": "You must be 18 or older to join.",
+
+  "onboardingProfileTitle": "Create your profile",
+  "onboardingProfileBody": "Tell others a bit about yourself.",
+  "onboardingNickname": "Nickname",
+  "onboardingNicknameHint": "How should people know you?",
+  "onboardingNicknameRequired": "Please enter a nickname.",
+  "onboardingNicknameTooLong": "Maximum 30 characters.",
+  "onboardingBio": "Bio",
+  "onboardingBioHint": "Write a short bio (optional)…",
+  "onboardingBioTooLong": "Maximum 500 characters.",
+  "onboardingRelationshipGoal": "Relationship goal",
+  "onboardingInterests": "Interests",
+  "onboardingInterestsHint": "Select up to 10.",
+
+  "onboardingPhotosTitle": "Add your photos",
+  "onboardingPhotosBody": "Add up to {maxPhotos} photos. The first photo is your primary photo. Long-press to drag and reorder.",
+  "@onboardingPhotosBody": {
+    "placeholders": {
+      "maxPhotos": { "type": "int" }
+    }
+  },
+  "onboardingTapToAddPhoto": "Tap to add a photo",
+  "onboardingPhotoPrimary": "Primary",
+
+  "onboardingDiscoveryTitle": "Who are you looking for?",
+  "onboardingDiscoveryBody": "Set your discovery preferences. You can change these anytime.",
+  "onboardingAgeRange": "Age range",
+  "onboardingAgeRangeValue": "{minAge} – {maxAge}",
+  "@onboardingAgeRangeValue": {
+    "placeholders": {
+      "minAge": { "type": "int" },
+      "maxAge": { "type": "int" }
+    }
+  },
+  "onboardingMaxDistance": "Max distance",
+  "onboardingMaxDistanceValue": "{distance} km",
+  "@onboardingMaxDistanceValue": {
+    "placeholders": {
+      "distance": { "type": "int" }
+    }
+  },
+  "onboardingShowMe": "Show me",
+  "onboardingShowMeHint": "Leave blank to show everyone.",
+  "onboardingLookingFor": "Looking for",
+  "onboardingLookingForHint": "Leave blank to show all goals.",
+  "onboardingLetsBloom": "Let's Bloom 🌸",
+  "onboardingCreatingProfile": "Creating your profile…",
+  "onboardingError": "Something went wrong. Please try again.",
+
+  "editProfileTitle": "Edit Profile",
+  "editProfileNickname": "Nickname",
+  "editProfileNicknameHint": "How should people know you?",
+  "editProfileNicknameRequired": "Please enter a nickname.",
+  "editProfileNicknameTooLong": "Must be 30 characters or fewer.",
+  "editProfileBio": "Bio",
+  "editProfileBioHint": "Write a short bio (optional)…",
+  "editProfileBioTooLong": "Bio must be 500 characters or fewer.",
+  "editProfileRelationshipGoal": "Relationship goal",
+  "editProfileInterests": "Interests",
+  "editProfileInterestsHint": "Select up to 10.",
+  "editProfileSelectGoal": "Please select a relationship goal.",
+
+  "managePhotosTitle": "Manage Photos",
+  "managePhotosHint": "Drag ≡ to reorder. The first photo is your primary photo.",
+  "managePhotosAddButton": "Add photo ({count}/{max})",
+  "@managePhotosAddButton": {
+    "placeholders": {
+      "count": { "type": "int" },
+      "max": { "type": "int" }
+    }
+  },
+  "managePhotosEmpty": "No photos yet",
+  "managePhotosSetAsPrimary": "Set as primary",
+  "managePhotosDelete": "Delete",
+  "managePhotosPrimary": "Primary",
+
+  "privacyTitle": "Privacy",
+  "privacyProfileVisibility": "Profile visibility",
+  "privacyPublic": "Public",
+  "privacyHidden": "Hidden",
+  "privacySelective": "Selective",
+  "privacyPublicDesc": "Your profile can appear to eligible users.",
+  "privacyHiddenDesc": "Your profile will not appear in discovery.",
+  "privacySelectiveDesc": "Your profile visibility is limited based on your preferences.",
+  "privacyWhoCanSeeYou": "Who can see you",
+  "privacyOnlineStatus": "Online status",
+  "privacyOnlineStatusDesc": "Show when you are online.",
+  "privacyLastSeen": "Last seen",
+  "privacyLastSeenDesc": "Show your last active time.",
+
+  "notificationsTitle": "Notifications",
+  "notificationsKeepUpdated": "Keep me updated",
+  "notificationsMatch": "Match notifications",
+  "notificationsMatchDesc": "Get notified when a new connection blooms.",
+  "notificationsMessage": "Message notifications",
+  "notificationsMessageDesc": "Get notified when someone sends you a message.",
+  "notificationsLike": "Like notifications",
+  "notificationsLikeDesc": "Get notified when someone likes your profile.",
+  "notificationsVerification": "Verification notifications",
+  "notificationsVerificationDesc": "Get notified about verification updates.",
+
+  "locationPermissionTitle": "Location permission",
+  "locationPermissionMainTitle": "Help Bloom show nearby connections",
+  "locationPermissionBody": "Bloom uses your location to calculate approximate distance later. Your exact location is never shown to other users.",
+  "locationPermissionGrantedStatus": "Location permission is enabled.",
+  "locationPermissionServiceDisabled": "Location services are turned off on this device.",
+  "locationPermissionDenied": "Location permission is needed before nearby discovery can work.",
+  "locationPermissionDeniedForever": "Location permission is blocked. You can enable it in app settings.",
+  "locationPermissionGrantedLabel": "Permission granted",
+  "locationPermissionAllow": "Allow Location",
+  "locationPermissionCheckFailed": "Failed to check location permission. Please try again.",
+  "locationPermissionRequestFailed": "Failed to request location permission. Please try again.",
+  "locationUpdateButton": "Update location",
+  "locationUpdateSuccess": "Location updated.",
+  "locationUpdateFailed": "Failed to update location. Please try again.",
+  "locationPermissionRequiredForUpdate": "Location permission is required to update your location.",
+  "locationServiceDisabledForUpdate": "Please enable location services to update your location.",
+  "locationNotUpdatedYet": "Location not updated yet",
+  "locationLastUpdated": "Last updated {timeAgo}",
+  "@locationLastUpdated": {
+    "placeholders": {
+      "timeAgo": { "type": "String" }
+    }
+  },
+
+  "profileAbout": "About",
+  "profileLookingFor": "Looking for",
+  "profileInterests": "Interests",
+  "profileErrorLoad": "Could not load your profile. Please try again.",
+  "profilePrivacyTile": "Privacy settings",
+  "profileNotificationsTile": "Notifications",
+  "profileNotificationsSubtitle": "Manage match, message, like, and verification alerts",
+  "profileLocationTile": "Location",
+  "profileLocationSubtitle": "Manage location permission for nearby discovery",
+  "profileLanguageTile": "Language",
+  "profileLanguageSubtitle": "Choose your app language",
+
+  "languageTitle": "Language",
+  "languageSystemDefault": "System default",
+  "languageEnglish": "English",
+  "languageKorean": "한국어",
+  "languageErrorSave": "Failed to save language preference. Please try again.",
+
+  "navExplore": "Explore",
+  "navBrowse": "Browse",
+  "navChat": "Chat",
+  "navAlerts": "Alerts",
+  "navProfile": "Profile",
+
+  "filtersTitle": "Filters",
+  "filtersApply": "Apply",
+  "filtersReset": "Reset",
+  "filtersAge": "Age",
+  "filtersIdentity": "Identity",
+  "filtersRelationshipGoal": "Relationship Goal",
+  "filtersVerifiedOnly": "Verified profiles only",
+  "filtersDistance": "Distance",
+  "filtersAnyDistance": "Any",
+  "filtersWithinKm": "Within {km} km",
+  "@filtersWithinKm": {
+    "placeholders": {
+      "km": { "type": "int" }
+    }
+  },
+  "filtersActiveCount": "{count} filter(s) active",
+  "@filtersActiveCount": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+
+  "browseTitle": "Browse",
+  "browseEmptyTitle": "No profiles yet",
+  "browseEmptyBody": "Check back later for new connections.",
+  "browseErrorTitle": "Something went wrong",
+  "browseErrorBody": "Could not load profiles. Please try again.",
+  "browseRetry": "Retry",
+  "browseNeedsLocationTitle": "Update your location",
+  "browseNeedsLocationBody": "Bloom needs your location to find nearby connections.",
+  "browseUpdateLocation": "Update Location",
+  "browseRefresh": "Refresh",
+  "browseVerified": "Verified",
+  "browsePremium": "Premium",
+
+  "exploreTitle": "Explore",
+  "exploreEmptyTitle": "No profiles yet",
+  "exploreEmptyBody": "Check back later for new connections.",
+  "exploreErrorTitle": "Something went wrong",
+  "exploreErrorBody": "Could not load profiles. Please try again.",
+  "exploreRetry": "Retry",
+  "exploreNeedsLocationTitle": "Update your location",
+  "exploreNeedsLocationBody": "Bloom needs your location to find nearby connections.",
+  "exploreUpdateLocation": "Update Location",
+  "exploreRefresh": "Refresh",
+  "exploreVerified": "Verified",
+  "explorePremium": "Premium",
+
+  "mapDiscoveryTitle": "Map",
+  "mapDiscoveryEmptyTitle": "No profiles on the map yet",
+  "mapDiscoveryEmptyBody": "Check back later for new connections.",
+  "mapDiscoveryErrorTitle": "Something went wrong",
+  "mapDiscoveryErrorBody": "Could not load profiles. Please try again.",
+  "mapDiscoveryRetry": "Retry",
+  "mapDiscoveryNeedsLocationTitle": "Update your location",
+  "mapDiscoveryNeedsLocationBody": "Update your location to discover nearby connections on the map.",
+  "mapDiscoveryUpdateLocation": "Update Location",
+  "mapDiscoveryApproximateArea": "Approximate area",
+  "mapDiscoveryOpenMap": "Map",
+
+  "swipePass": "Pass",
+  "swipeLike": "Like",
+  "swipeSuperLike": "Super Like",
+  "swipePassedFeedback": "Passed",
+  "swipeLikedFeedback": "Liked",
+  "swipeSuperLikedFeedback": "Super liked",
+
+  "compatibilityMatchPercent": "{percentage}% match",
+  "@compatibilityMatchPercent": {
+    "placeholders": {
+      "percentage": { "type": "int" }
+    }
+  },
+  "compatibilityNewProfile": "New profile",
+  "compatibilityAboutTitle": "Compatibility",
+  "compatibilityApproxNote": "Based on approximate location data",
+  "compatibilityReasonSharedInterests": "Similar interests",
+  "compatibilityReasonRelationshipGoal": "Looking for similar relationship",
+  "compatibilityReasonIdentityFit": "Identity is a great match",
+  "compatibilityReasonAgeRange": "Age is within your preference",
+  "compatibilityReasonNearbyArea": "May be in a nearby area",
+  "compatibilityReasonVerified": "Verified profile",
+
+  "matchCelebrationTitle": "It's a match!",
+  "matchCelebrationSubtitle": "You and {name} liked each other.",
+  "@matchCelebrationSubtitle": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "matchCelebrationKeepExploring": "Keep exploring",
+  "matchCelebrationFallbackName": "Someone",
+
+  "mapNearbyTitle": "Nearby users",
+  "mapNearbyRadiusLabel": "Within {radiusKm} km",
+  "@mapNearbyRadiusLabel": {
+    "placeholders": {
+      "radiusKm": { "type": "int" }
+    }
+  },
+  "mapNearbyNoUsers": "No nearby users yet.",
+  "mapNearbyFewerThanFive": "Fewer than 5 nearby users",
+  "mapNearbyCountPlus": "{count}+ nearby users",
+  "@mapNearbyCountPlus": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "mapNearbyPrivacyNotice": "For safety, individual user locations are not shown.",
+  "mapNearbyLoadFailed": "Couldn't load nearby user count. Please try again.",
+
+  "mapMyLocation": "My location",
+  "mapApproximatePrivacyNote": "Profiles shown by approximate area.",
+  "mapMyLocationPermissionTitle": "Location permission needed",
+  "mapMyLocationPermissionBody": "Allow location access to see your position on the map.",
+  "mapMyLocationPermissionAction": "Allow location",
+  "mapMyLocationUnavailable": "Location unavailable. Please try again.",
+
+  "messagesTitle": "Messages",
+  "conversationListEmptyTitle": "No conversations yet",
+  "conversationListEmptyBody": "When you match with someone, you'll see them here.",
+  "conversationListErrorTitle": "Couldn't load conversations",
+  "conversationListErrorBody": "Please try again in a moment.",
+  "conversationListRetry": "Retry",
+  "conversationNoMessagesYet": "You matched. Say hello soon.",
+  "conversationChatComingSoon": "Chat is coming soon.",
+  "conversationUnknownUser": "Unknown",
+
+  "chatStartConversation": "Start the conversation.",
+  "chatMessageHint": "Type a message",
+  "chatSend": "Send",
+  "chatSending": "Sending",
+  "chatLoadErrorTitle": "Couldn't load messages",
+  "chatLoadErrorBody": "Please try again in a moment.",
+  "chatRetry": "Retry",
+  "chatSendFailed": "Couldn't send message. Please try again.",
+  "chatUnknownUser": "Unknown",
+
+  "chatAttachImage": "Attach image",
+  "chatImageSendFailed": "Couldn't send image. Please try again.",
+  "chatImageMessageFallback": "Image unavailable",
+  "conversationPhotoMessage": "Photo",
+
+  "chatTypingIndicator": "{name} is typing...",
+  "@chatTypingIndicator": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "chatTypingFallbackName": "Someone",
+
+  "chatMessageSent": "Sent",
+  "chatMessageRead": "Read",
+
+  "chatUnmatch": "Unmatch",
+  "chatUnmatchTitle": "Unmatch?",
+  "chatUnmatchBody": "You and {name} will no longer be able to message each other.",
+  "@chatUnmatchBody": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "chatUnmatchConfirm": "Unmatch",
+  "chatUnmatchCancel": "Cancel",
+  "chatUnmatchSuccess": "Match removed.",
+  "chatUnmatchFailed": "Couldn't unmatch. Please try again.",
+
+  "notificationCenterTitle": "Notifications",
+  "notificationCenterEmpty": "No notifications yet.",
+  "notificationCenterLoadError": "Couldn't load notifications.",
+  "notificationCenterMarkAllRead": "Mark all read",
+  "notificationCenterMarkedAllRead": "All notifications marked as read.",
+
+  "safetyBlockUser": "Block user",
+  "safetyBlockTitle": "Block this user?",
+  "safetyBlockBody": "You won't see each other, match, or message anymore.",
+  "safetyBlockConfirm": "Block",
+  "safetyBlockCancel": "Cancel",
+  "safetyBlockSuccess": "User blocked.",
+  "safetyBlockFailed": "Couldn't block user. Please try again.",
+  "safetyCannotBlockSelf": "You can't block yourself.",
+
+  "safetyReportUser": "Report user",
+  "safetyReportTitle": "Report this user?",
+  "safetyReportReasonSpam": "Spam",
+  "safetyReportReasonFakeProfile": "Fake profile",
+  "safetyReportReasonHarassment": "Harassment",
+  "safetyReportReasonHateSpeech": "Hate speech",
+  "safetyReportReasonInappropriateContent": "Inappropriate content",
+  "safetyReportDescriptionHint": "Add details, if you'd like.",
+  "safetyReportSubmit": "Submit report",
+  "safetyReportCancel": "Cancel",
+  "safetyReportSuccess": "Report submitted.",
+  "safetyReportFailed": "Couldn't submit report. Please try again.",
+
+  "safetyCenterTitle": "Safety Center",
+  "safetyCenterDescription": "Control who can interact with you and review safety options.",
+  "safetyBlockedUsersTitle": "Blocked users",
+  "safetyBlockedUsersEmpty": "You haven't blocked anyone.",
+  "safetyBlockedUserFallback": "Blocked user",
+  "safetyUnblock": "Unblock",
+  "safetyUnblockTitle": "Unblock this user?",
+  "safetyUnblockBody": "They may be able to find or interact with you again.",
+  "safetyUnblockConfirm": "Unblock",
+  "safetyUnblockCancel": "Cancel",
+  "safetyUnblockSuccess": "User unblocked.",
+  "safetyUnblockFailed": "Couldn't unblock user. Please try again.",
+  "safetyTipsTitle": "Safety tips",
+  "safetyTipFinancialInfo": "Don't share financial or personal information.",
+  "safetyTipPublicPlace": "Choose a public place for your first meeting.",
+  "safetyTipReportSuspicious": "Report any suspicious behavior.",
+  "safetyTipBlockUncomfortable": "Block anyone who makes you feel uncomfortable.",
+  "safetyTipTrustInstincts": "Trust your instincts.",
+  "safetyReportInfoTitle": "About reports",
+  "safetyReportInfoBody": "Reports are reviewed by the team. The reported user won't be notified.",
+  "safetyBlockInfoTitle": "About blocking",
+  "safetyBlockInfoBody": "Blocking prevents discovery, matching, and messaging.",
+  "profileSafetyTile": "Safety Center",
+  "profileSafetySubtitle": "Manage blocked users and safety options"
+}

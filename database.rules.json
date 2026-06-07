@@ -1,0 +1,35 @@
+{
+  "rules": {
+    ".read":  false,
+    ".write": false,
+
+    "status": {
+      "$uid": {
+        ".read":  "auth != null",
+        ".write": "auth != null && auth.uid === $uid",
+        ".validate": "newData.hasChildren(['isOnline', 'lastSeen'])",
+
+        "isOnline": {
+          ".validate": "newData.isBoolean()"
+        },
+        "lastSeen": {
+          ".validate": "newData.isNumber()"
+        },
+
+        "$other": {
+          ".validate": false
+        }
+      }
+    },
+
+    "typing": {
+      "$matchId": {
+        ".read": "auth != null",
+        "$uid": {
+          ".write":    "auth != null && auth.uid === $uid",
+          ".validate": "!newData.exists() || newData.isBoolean()"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,287 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ── Helpers ──────────────────────────────────────────────────────────────
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isSelf(uid) {
+      return isSignedIn() && request.auth.uid == uid;
+    }
+
+    function isAdmin() {
+      return isSignedIn() && request.auth.token.get('admin', false) == true;
+    }
+
+    // Checks the Custom Claim set by Cloud Function when a user is suspended.
+    // Suspended users are blocked from most write operations.
+    function isActive() {
+      return isSignedIn() &&
+             request.auth.token.get('accountStatus', 'active') == 'active';
+    }
+
+    // Fields users are never permitted to set on their own document.
+    // These are controlled exclusively by Cloud Functions and admins.
+    function systemFields() {
+      return ['accountStatus', 'premium', 'verificationLevel', 'createdAt', 'id', 'email'];
+    }
+
+    function onlyAllowedUserFields() {
+      return !request.resource.data.diff(resource.data)
+               .affectedKeys()
+               .hasAny(systemFields());
+    }
+
+    // ── Users ─────────────────────────────────────────────────────────────────
+
+    match /users/{userId} {
+      // Any signed-in user may read profiles (required for discovery).
+      // Exact coordinates are in the private subcollection, not here.
+      allow get:  if isSignedIn();
+      allow list: if isSignedIn();
+
+      // Account creation: the owner creates their own document.
+      allow create: if isSelf(userId) &&
+                       request.resource.data.accountStatus == 'active';
+
+      // Profile update: owner may update all fields except system-managed ones.
+      allow update: if (isSelf(userId) && onlyAllowedUserFields()) ||
+                       isAdmin();
+
+      allow delete: if isAdmin();
+
+      // ── private/location — exact GeoPoint, owner + admin only ────────────
+      match /private/location {
+        allow read, write: if isSelf(userId) || isAdmin();
+      }
+
+      // ── private/notificationTokens — FCM token, owner + admin only ───────
+      // Field-validated on writes: only fcmToken (string) and updatedAt allowed.
+      // Other signed-in users cannot read this path.
+      match /private/notificationTokens {
+        allow read:          if isSelf(userId) || isAdmin();
+        allow create, update: if (isSelf(userId) &&
+                                  request.resource.data.keys().hasOnly(['fcmToken', 'updatedAt']) &&
+                                  request.resource.data.fcmToken is string) ||
+                                 isAdmin();
+        allow delete:        if isSelf(userId) || isAdmin();
+      }
+
+      // ── blocks — create by owner; owner may delete (unblock); no update ────
+      match /blocks/{blockedUserId} {
+        allow read:   if isSelf(userId) || isAdmin();
+        allow create: if isSelf(userId) &&
+                         isActive() &&
+                         userId != blockedUserId &&
+                         request.resource.data.keys().hasOnly(['blockedUserId', 'createdAt']) &&
+                         request.resource.data.blockedUserId == blockedUserId;
+        allow update: if false;
+        allow delete: if isSelf(userId) || isAdmin();
+      }
+
+      // ── passes — owner reads and writes ──────────────────────────────────
+      match /passes/{passedUserId} {
+        allow read, write: if isSelf(userId);
+      }
+    }
+
+    // ── Likes ─────────────────────────────────────────────────────────────────
+
+    match /likes/{likeId} {
+      // Sender may read their own likes (to detect already-liked users).
+      // Recipient may read likes sent to them (premium "View Received Likes").
+      allow read: if isSignedIn() && (
+                    resource.data.fromUserId == request.auth.uid ||
+                    resource.data.toUserId   == request.auth.uid
+                  );
+
+      allow create: if isSignedIn() &&
+                       isActive() &&
+                       request.resource.data.fromUserId == request.auth.uid &&
+                       request.resource.data.fromUserId != request.resource.data.toUserId &&
+                       !exists(/databases/$(database)/documents/users/$(request.auth.uid)/blocks/$(request.resource.data.toUserId)) &&
+                       !exists(/databases/$(database)/documents/users/$(request.resource.data.toUserId)/blocks/$(request.auth.uid));
+
+      // Likes are immutable once created.
+      allow update: if false;
+
+      // Sender may undo/delete their own like.
+      allow delete: if isSignedIn() &&
+                       resource.data.fromUserId == request.auth.uid;
+
+      allow read, write: if isAdmin();
+    }
+
+    // ── Matches ───────────────────────────────────────────────────────────────
+
+    match /matches/{matchId} {
+      // Only participants may read the match document.
+      allow read: if isSignedIn() &&
+                     request.auth.uid in resource.data.users;
+
+      // Match creation is handled exclusively by Cloud Functions.
+      allow create: if false;
+
+      // Participants may update mutable fields (e.g. lastMessagePreview,
+      // lastMessageAt, active). Immutable: users[], compatibilityScore, createdAt.
+      // active may only transition true → false (no reactivation).
+      allow update: if isSignedIn() &&
+                       request.auth.uid in resource.data.users &&
+                       !request.resource.data.diff(resource.data)
+                         .affectedKeys()
+                         .hasAny(['users', 'compatibilityScore', 'createdAt']) &&
+                       (
+                         !request.resource.data.diff(resource.data)
+                           .affectedKeys()
+                           .hasAny(['active']) ||
+                         (resource.data.active == true &&
+                          request.resource.data.active == false)
+                       );
+
+      allow delete: if false;
+
+      allow read, write: if isAdmin();
+
+      // ── messages — subcollection ─────────────────────────────────────────
+      match /messages/{messageId} {
+        // Fetches the parent match document; Firestore caches get() calls
+        // to the same path within a single rule evaluation.
+        function matchData() {
+          return get(/databases/$(database)/documents/matches/$(matchId)).data;
+        }
+
+        function inMatch() {
+          return request.auth.uid in matchData().users;
+        }
+
+        allow read: if isSignedIn() && inMatch();
+
+        // Sending is blocked when the match is inactive (after unmatch/block).
+        // Also blocked when either participant has blocked the other.
+        allow create: if isSignedIn() &&
+                         isActive() &&
+                         inMatch() &&
+                         matchData().active == true &&
+                         request.resource.data.senderId == request.auth.uid &&
+                         request.resource.data.deleted  == false &&
+                         !exists(/databases/$(database)/documents/users/$(matchData().users[0])/blocks/$(matchData().users[1])) &&
+                         !exists(/databases/$(database)/documents/users/$(matchData().users[1])/blocks/$(matchData().users[0]));
+
+        // Sender may soft-delete their own message.
+        // Only deleted, content, and imageUrl may change.
+        allow update: if isSignedIn() &&
+                         resource.data.senderId == request.auth.uid &&
+                         request.resource.data.deleted == true &&
+                         request.resource.data.diff(resource.data)
+                           .affectedKeys()
+                           .hasOnly(['deleted', 'content', 'imageUrl']);
+
+        // Read receipt: any participant may append their own uid to readBy.
+        // Only readBy may change; existing values may not be removed.
+        // Note: this rule cannot prevent adding a third-party uid alongside
+        // one's own; that is an accepted MVP limitation (no sensitive data exposed).
+        allow update: if isSignedIn() &&
+                         inMatch() &&
+                         resource.data.deleted == false &&
+                         request.resource.data.diff(resource.data)
+                           .affectedKeys()
+                           .hasOnly(['readBy']) &&
+                         request.auth.uid in request.resource.data.readBy &&
+                         request.resource.data.readBy.hasAll(resource.data.readBy);
+
+        allow delete: if false;
+
+        allow read, write: if isAdmin();
+      }
+    }
+
+    // ── Notifications ─────────────────────────────────────────────────────────
+
+    match /notifications/{notificationId} {
+      allow read: if isSignedIn() &&
+                     resource.data.userId == request.auth.uid;
+
+      // Notifications are created exclusively by Cloud Functions.
+      allow create: if false;
+
+      // Owner may only mark unread → read. No other field may change.
+      allow update: if isSignedIn() &&
+                       resource.data.userId == request.auth.uid &&
+                       request.resource.data.userId == resource.data.userId &&
+                       request.resource.data.diff(resource.data)
+                         .affectedKeys()
+                         .hasOnly(['read']) &&
+                       resource.data.read == false &&
+                       request.resource.data.read == true;
+
+      allow delete: if false;
+
+      allow read, write: if isAdmin();
+    }
+
+    // ── Reports ───────────────────────────────────────────────────────────────
+
+    match /reports/{reportId} {
+      // Clients may not read, list, update, or delete reports.
+      // Admin handles moderation through a trusted backend.
+      allow create: if isSignedIn() &&
+                       isActive() &&
+                       request.resource.data.keys().hasOnly([
+                         'id', 'reporterId', 'targetUserId',
+                         'reason', 'description', 'status', 'createdAt'
+                       ]) &&
+                       request.resource.data.id == reportId &&
+                       request.resource.data.reporterId == request.auth.uid &&
+                       request.resource.data.targetUserId is string &&
+                       request.resource.data.targetUserId != request.auth.uid &&
+                       request.resource.data.reason in [
+                         'spam', 'fake_profile', 'harassment',
+                         'hate_speech', 'inappropriate_content'
+                       ] &&
+                       request.resource.data.description is string &&
+                       request.resource.data.status == 'pending';
+
+      allow read, update, delete: if isAdmin();
+    }
+
+    // ── Verification Requests ─────────────────────────────────────────────────
+
+    match /verification_requests/{requestId} {
+      // Owner may read their own verification request.
+      allow read: if isSignedIn() &&
+                     resource.data.userId == request.auth.uid;
+
+      // Owner may submit one request at a time; status must start as pending.
+      allow create: if isSignedIn() &&
+                       request.resource.data.userId  == request.auth.uid &&
+                       request.resource.data.status  == 'pending';
+
+      // Status transitions are handled by Cloud Functions / admin only.
+      allow update, delete: if false;
+
+      allow read, write: if isAdmin();
+    }
+
+    // ── Subscriptions ─────────────────────────────────────────────────────────
+
+    match /subscriptions/{subscriptionId} {
+      // Owner may read their own subscription record.
+      allow read: if isSignedIn() &&
+                     resource.data.userId == request.auth.uid;
+
+      // Managed exclusively by Cloud Functions (RevenueCat webhook).
+      allow create, update, delete: if false;
+
+      allow read, write: if isAdmin();
+    }
+
+    // ── Catch-all deny ────────────────────────────────────────────────────────
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
