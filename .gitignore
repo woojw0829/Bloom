@@ -48,6 +48,10 @@ app.*.map.json
 android/app/google-services.json
 ios/Runner/GoogleService-Info.plist
 
+# Environment variables
+.env
+.env.*
+
 # Node modules
 node_modules/
 functions/node_modules/
