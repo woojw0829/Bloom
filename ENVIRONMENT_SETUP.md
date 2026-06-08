@@ -23,8 +23,16 @@ This document explains how to configure secrets and environment variables for lo
 | Secret / Variable | Where it lives (production) | Where it lives (local dev) | Used by |
 |---|---|---|---|
 | `REVENUECAT_WEBHOOK_SECRET` | Firebase Secret Manager | `functions/.secret.local` (gitignored) | `revenueCatWebhook` Cloud Function only |
-| `REVENUECAT_IOS_API_KEY` | `--dart-define` at build time | `.env.flutter.local` via `--dart-define-from-file` | Flutter app (iOS/macOS) |
-| `REVENUECAT_ANDROID_API_KEY` | `--dart-define` at build time | `.env.flutter.local` via `--dart-define-from-file` | Flutter app (Android) |
+| `REVENUECAT_ANDROID_API_KEY` | `--dart-define` at build time | `.env.flutter.local` via `--dart-define-from-file` | Flutter app (Android) — takes priority |
+| `REVENUECAT_IOS_API_KEY` | `--dart-define` at build time | `.env.flutter.local` via `--dart-define-from-file` | Flutter app (iOS/macOS) — takes priority |
+| `REVENUECAT_SDK_API_KEY` | `--dart-define` at build time | `.env.flutter.local` via `--dart-define-from-file` | Flutter app — dev/test fallback when platform-specific key is absent |
+
+**Key selection priority (Flutter client):**
+1. Platform-specific key (`REVENUECAT_ANDROID_API_KEY` or `REVENUECAT_IOS_API_KEY`) — always preferred.
+2. `REVENUECAT_SDK_API_KEY` — fallback when the platform-specific key is absent or still a placeholder.
+3. Unconfigured — no crash; RevenueCat SDK is simply not initialized.
+
+`REVENUECAT_IOS_API_KEY` can remain empty or a placeholder until iOS setup is complete. The app will fall back to `REVENUECAT_SDK_API_KEY` automatically.
 
 **Critical:** `REVENUECAT_WEBHOOK_SECRET` is a server-only secret. It must **never** appear in `.env.flutter.local` or be passed to Flutter via `--dart-define`.
 
@@ -100,9 +108,14 @@ Then fill in the real public SDK keys obtained from:
 **RevenueCat Dashboard > Project > Apps > (your app) > API keys**
 
 ```
-REVENUECAT_IOS_API_KEY=appl_YOUR_PUBLIC_IOS_KEY
 REVENUECAT_ANDROID_API_KEY=goog_YOUR_PUBLIC_ANDROID_KEY
+REVENUECAT_IOS_API_KEY=appl_YOUR_PUBLIC_IOS_KEY
+REVENUECAT_SDK_API_KEY=YOUR_DEV_OR_TEST_FALLBACK_KEY
 ```
+
+`REVENUECAT_IOS_API_KEY` can remain empty or its placeholder value until iOS setup is complete — the Flutter app will automatically fall back to `REVENUECAT_SDK_API_KEY`.
+
+`REVENUECAT_SDK_API_KEY` is a development/test fallback. It is only used when the platform-specific key is absent or still a placeholder. Platform-specific keys always take priority.
 
 ⚠️ **Do not add `REVENUECAT_WEBHOOK_SECRET` to `.env.flutter.local`.** That secret is server-only.
 
