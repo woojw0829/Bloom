@@ -47,10 +47,20 @@ app.*.map.json
 # Firebase config (sensitive)
 android/app/google-services.json
 ios/Runner/GoogleService-Info.plist
+lib/firebase_options.dart
 
-# Environment variables
+# Environment / secret files — local only, never commit real secrets.
+# Production Cloud Functions must use Firebase Secret Manager.
 .env
 .env.*
+!.env.example
+functions/.env
+functions/.env.*
+!functions/.env.example
+functions/.secret.local
+functions/.secret.*
+.secret.local
+.secret.*
 
 # Node modules
 node_modules/
