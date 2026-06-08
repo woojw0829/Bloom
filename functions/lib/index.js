@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.onMessageCreatedNotification = exports.onMatchCreatedNotification = exports.onPresenceStatusWritten = exports.onLikeCreated = void 0;
+exports.revenueCatWebhook = exports.onMessageCreatedNotification = exports.onMatchCreatedNotification = exports.onPresenceStatusWritten = exports.onLikeCreated = void 0;
 const app_1 = require("firebase-admin/app");
 (0, app_1.initializeApp)();
 var on_like_created_1 = require("./on_like_created");
@@ -11,4 +11,6 @@ var on_match_created_notification_1 = require("./on_match_created_notification")
 Object.defineProperty(exports, "onMatchCreatedNotification", { enumerable: true, get: function () { return on_match_created_notification_1.onMatchCreatedNotification; } });
 var on_message_created_notification_1 = require("./on_message_created_notification");
 Object.defineProperty(exports, "onMessageCreatedNotification", { enumerable: true, get: function () { return on_message_created_notification_1.onMessageCreatedNotification; } });
+var revenuecat_webhook_1 = require("./revenuecat_webhook");
+Object.defineProperty(exports, "revenueCatWebhook", { enumerable: true, get: function () { return revenuecat_webhook_1.revenueCatWebhook; } });
 //# sourceMappingURL=index.js.map

@@ -1056,4 +1056,65 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get photoVerificationAlreadyPending => '이미 검토 중인 인증 요청이 있어요.';
+
+  @override
+  String get verificationBadgePhoto => '사진 인증됨';
+
+  @override
+  String get verificationBadgeVerified => '인증됨';
+
+  @override
+  String get verificationBadgePhotoSemantic => '사진 인증 완료';
+
+  @override
+  String get verificationBadgeVerifiedSemantic => '신원 인증 완료';
+
+  @override
+  String get verificationManagementTitle => '인증 요청 관리';
+
+  @override
+  String get verificationManagementAccessDenied => '관리자 권한이 필요해요.';
+
+  @override
+  String get verificationManagementLoadFailed =>
+      '인증 요청을 불러오지 못했어요. 다시 시도해 주세요.';
+
+  @override
+  String get verificationManagementEmpty => '대기 중인 인증 요청이 없어요.';
+
+  @override
+  String get verificationManagementPhotoOnlyNotice => '사진 인증 요청만 표시돼요.';
+
+  @override
+  String get verificationManagementApproved => '승인됐어요.';
+
+  @override
+  String get verificationManagementRejected => '거절됐어요.';
+
+  @override
+  String get verificationManagementActionFailed => '처리에 실패했어요. 다시 시도해 주세요.';
+
+  @override
+  String get verificationManagementApproveTitle => '인증을 승인할까요?';
+
+  @override
+  String get verificationManagementApproveBody => '이 사진 인증 요청을 승인합니다.';
+
+  @override
+  String get verificationManagementApprove => '승인';
+
+  @override
+  String get verificationManagementImageLoadFailed => '이미지를 불러올 수 없어요';
+
+  @override
+  String get verificationManagementReject => '거절';
+
+  @override
+  String get verificationManagementRejectTitle => '인증을 거절할까요?';
+
+  @override
+  String get verificationManagementRejectReasonHint => '거절 사유를 입력해 주세요…';
+
+  @override
+  String get verificationManagementRejectReasonRequired => '거절 사유를 입력해 주세요.';
 }

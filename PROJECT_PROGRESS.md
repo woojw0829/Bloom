@@ -35,8 +35,11 @@ This file tracks the actual implementation progress of the Bloom app across all 
 | Phase 12 Verification | In progress |
 | Task 12.1 Photo Verification | Complete |
 | Task 12.2 Government ID Verification | **Deferred for MVP** |
-| Task 12.3 Verification Request Management | **Next recommended task** |
+| Task 12.3 Verification Request Management | Complete |
 | Task 12.4 Verification Badges | Not started |
+| Phase 13 Premium / RevenueCat | In progress |
+| Task 13.1 RevenueCat Integration | Complete |
+| Task 13.2 Subscription Synchronization | **Next recommended task** |
 
 ---
 
@@ -102,8 +105,13 @@ This file tracks the actual implementation progress of the Bloom app across all 
 
 - [x] Task 12.1 Photo verification — `VerificationRequest` model + `VerificationType`/`VerificationRequestStatus` enums; `VerificationRepository` + `VerificationRepositoryImpl`; `SubmitPhotoVerificationUseCase` (sealed outcomes); `PhotoVerificationController` (image picker + submit); `PhotoVerificationScreen` at `/profile/verification` (pending/approved/rejected/submission states); Profile tile added; Firestore rules tightened (key validation + `selfieImageUrl` path validation); Storage rules added for `verification_requests/{userId}/{requestId}/selfie.jpg` (write-only, read blocked); composite index added (`userId+verificationType+createdAt`); EN+KO localization (20 keys); 27 new unit tests; `flutter analyze` clean, 433/433 passed
 - [!] Task 12.2 Government ID verification — **Deferred for MVP** (see [Deferred Tasks](#deferred-tasks))
-- [ ] Task 12.3 Verification request management
+- [x] Task 12.3 Verification request management
 - [ ] Task 12.4 Verification badges
+
+### Phase 13 — Premium / RevenueCat
+
+- [x] Task 13.1 RevenueCat Integration — `RevenueCatPlatformConfig` sealed class (`RevenueCatConfigured` / `RevenueCatUnconfigured`); `selectRevenueCatConfig()` + `selectRevenueCatConfigWith()` (testable, platform-injected); `RevenueCatService` interface + `RevenueCatServiceImpl` (configure/logIn/logOut/getCustomerInfo/restorePurchases); `PremiumRepository` + `PremiumRepositoryImpl`; `PremiumProvider` (Riverpod); `revenueCatWebhook` Cloud Function (Authorization header verification via `crypto.timingSafeEqual`; Firebase Secret Manager for `REVENUECAT_WEBHOOK_SECRET`; Task 13.1 scope — acknowledges verified events without subscription writes); `revenuecat_helpers.ts` (pure functions: extract/verify authorization, parse event, type guard); env structure: `.env.flutter.local` for public SDK keys (gitignored), `functions/.secret.local` for webhook secret (gitignored); `ENVIRONMENT_SETUP.md` + example files committed; premium unit tests added
+- [ ] Task 13.2 Subscription synchronization — **Next recommended task** (see [Next Recommended Task](#next-recommended-task))
 
 ---
 
@@ -154,22 +162,19 @@ Do not implement Government ID verification in the MVP.
 
 ## Next Recommended Task
 
-**[>] Task 12.3 — Verification Request Management**
+**[>] Task 13.2 — Subscription Synchronization**
 
 **Scope:**
-Implement verification request management for **photo verification only**.
+Implement subscription state synchronization from RevenueCat webhook events to Firestore.
 
 **Important constraints:**
-- Task 12.3 must not depend on or reference Government ID verification.
-- Task 12.3 manages photo verification requests created by Task 12.1.
-- If admin review is introduced, it must review only:
-  - `verificationType == "photo"`
-  - `selfieImageUrl` (Storage path)
-  - `status` (`pending` / `approved` / `rejected`)
-- Do not add government ID review to Task 12.3 unless Task 12.2 is explicitly resumed later.
-- Do not update `users/{userId}.verificationLevel` from the client.
-- Do not create notification documents from the client.
-- Do not send push notifications from the client.
+- Task 13.2 builds on the `revenueCatWebhook` Cloud Function foundation from Task 13.1.
+- Do not implement premium feature gates in this task.
+- Do not implement paywall UI in this task.
+- Do not update `users.premium` from the Flutter client.
+- Subscription writes must happen only in Cloud Functions, triggered by verified webhook events.
+- `REVENUECAT_WEBHOOK_SECRET` must remain server-only — never passed to Flutter.
+- Firebase Secret Manager must be set before deploying updated Cloud Functions.
 
 ---
 

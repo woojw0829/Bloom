@@ -2131,6 +2131,126 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'You already have a pending verification request.'**
   String get photoVerificationAlreadyPending;
+
+  /// No description provided for @verificationBadgePhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Photo Verified'**
+  String get verificationBadgePhoto;
+
+  /// No description provided for @verificationBadgeVerified.
+  ///
+  /// In en, this message translates to:
+  /// **'Verified'**
+  String get verificationBadgeVerified;
+
+  /// No description provided for @verificationBadgePhotoSemantic.
+  ///
+  /// In en, this message translates to:
+  /// **'Photo verified'**
+  String get verificationBadgePhotoSemantic;
+
+  /// No description provided for @verificationBadgeVerifiedSemantic.
+  ///
+  /// In en, this message translates to:
+  /// **'Identity verified'**
+  String get verificationBadgeVerifiedSemantic;
+
+  /// No description provided for @verificationManagementTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Verification Requests'**
+  String get verificationManagementTitle;
+
+  /// No description provided for @verificationManagementAccessDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'Admin access required.'**
+  String get verificationManagementAccessDenied;
+
+  /// No description provided for @verificationManagementLoadFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t load verification requests. Please try again.'**
+  String get verificationManagementLoadFailed;
+
+  /// No description provided for @verificationManagementEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No pending verification requests.'**
+  String get verificationManagementEmpty;
+
+  /// No description provided for @verificationManagementPhotoOnlyNotice.
+  ///
+  /// In en, this message translates to:
+  /// **'Showing photo verification requests only.'**
+  String get verificationManagementPhotoOnlyNotice;
+
+  /// No description provided for @verificationManagementApproved.
+  ///
+  /// In en, this message translates to:
+  /// **'Approved.'**
+  String get verificationManagementApproved;
+
+  /// No description provided for @verificationManagementRejected.
+  ///
+  /// In en, this message translates to:
+  /// **'Rejected.'**
+  String get verificationManagementRejected;
+
+  /// No description provided for @verificationManagementActionFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Action failed. Please try again.'**
+  String get verificationManagementActionFailed;
+
+  /// No description provided for @verificationManagementApproveTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Approve verification?'**
+  String get verificationManagementApproveTitle;
+
+  /// No description provided for @verificationManagementApproveBody.
+  ///
+  /// In en, this message translates to:
+  /// **'This will approve the photo verification request.'**
+  String get verificationManagementApproveBody;
+
+  /// No description provided for @verificationManagementApprove.
+  ///
+  /// In en, this message translates to:
+  /// **'Approve'**
+  String get verificationManagementApprove;
+
+  /// No description provided for @verificationManagementImageLoadFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Image unavailable'**
+  String get verificationManagementImageLoadFailed;
+
+  /// No description provided for @verificationManagementReject.
+  ///
+  /// In en, this message translates to:
+  /// **'Reject'**
+  String get verificationManagementReject;
+
+  /// No description provided for @verificationManagementRejectTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Reject verification?'**
+  String get verificationManagementRejectTitle;
+
+  /// No description provided for @verificationManagementRejectReasonHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter rejection reason…'**
+  String get verificationManagementRejectReasonHint;
+
+  /// No description provided for @verificationManagementRejectReasonRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a rejection reason.'**
+  String get verificationManagementRejectReasonRequired;
 }
 
 class _AppLocalizationsDelegate

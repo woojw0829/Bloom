@@ -27,6 +27,24 @@ class _FakeVerificationRepository implements VerificationRepository {
     required String userId,
   }) =>
       const Stream.empty();
+
+  @override
+  Stream<List<VerificationRequest>> watchPendingPhotoVerificationRequests() =>
+      const Stream.empty();
+
+  @override
+  Future<void> approvePhotoVerificationRequest({
+    required String requestId,
+    required String userId,
+    required String reviewerId,
+  }) async {}
+
+  @override
+  Future<void> rejectPhotoVerificationRequest({
+    required String requestId,
+    required String reviewerId,
+    required String rejectionReason,
+  }) async {}
 }
 
 // ── Helpers ───────────────────────────────────────────────────────────────────

@@ -444,5 +444,27 @@
   "photoVerificationRejectedBody": "Please review the feedback and resubmit.",
   "photoVerificationFailed": "Couldn't submit verification request. Please try again.",
   "photoVerificationImageRequired": "Please select a photo for verification.",
-  "photoVerificationAlreadyPending": "You already have a pending verification request."
+  "photoVerificationAlreadyPending": "You already have a pending verification request.",
+
+  "verificationBadgePhoto": "Photo Verified",
+  "verificationBadgeVerified": "Verified",
+  "verificationBadgePhotoSemantic": "Photo verified",
+  "verificationBadgeVerifiedSemantic": "Identity verified",
+
+  "verificationManagementTitle": "Verification Requests",
+  "verificationManagementAccessDenied": "Admin access required.",
+  "verificationManagementLoadFailed": "Couldn't load verification requests. Please try again.",
+  "verificationManagementEmpty": "No pending verification requests.",
+  "verificationManagementPhotoOnlyNotice": "Showing photo verification requests only.",
+  "verificationManagementApproved": "Approved.",
+  "verificationManagementRejected": "Rejected.",
+  "verificationManagementActionFailed": "Action failed. Please try again.",
+  "verificationManagementApproveTitle": "Approve verification?",
+  "verificationManagementApproveBody": "This will approve the photo verification request.",
+  "verificationManagementApprove": "Approve",
+  "verificationManagementImageLoadFailed": "Image unavailable",
+  "verificationManagementReject": "Reject",
+  "verificationManagementRejectTitle": "Reject verification?",
+  "verificationManagementRejectReasonHint": "Enter rejection reason…",
+  "verificationManagementRejectReasonRequired": "Please enter a rejection reason."
 }

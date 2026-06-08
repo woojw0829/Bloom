@@ -1105,4 +1105,70 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get photoVerificationAlreadyPending =>
       'You already have a pending verification request.';
+
+  @override
+  String get verificationBadgePhoto => 'Photo Verified';
+
+  @override
+  String get verificationBadgeVerified => 'Verified';
+
+  @override
+  String get verificationBadgePhotoSemantic => 'Photo verified';
+
+  @override
+  String get verificationBadgeVerifiedSemantic => 'Identity verified';
+
+  @override
+  String get verificationManagementTitle => 'Verification Requests';
+
+  @override
+  String get verificationManagementAccessDenied => 'Admin access required.';
+
+  @override
+  String get verificationManagementLoadFailed =>
+      'Couldn\'t load verification requests. Please try again.';
+
+  @override
+  String get verificationManagementEmpty => 'No pending verification requests.';
+
+  @override
+  String get verificationManagementPhotoOnlyNotice =>
+      'Showing photo verification requests only.';
+
+  @override
+  String get verificationManagementApproved => 'Approved.';
+
+  @override
+  String get verificationManagementRejected => 'Rejected.';
+
+  @override
+  String get verificationManagementActionFailed =>
+      'Action failed. Please try again.';
+
+  @override
+  String get verificationManagementApproveTitle => 'Approve verification?';
+
+  @override
+  String get verificationManagementApproveBody =>
+      'This will approve the photo verification request.';
+
+  @override
+  String get verificationManagementApprove => 'Approve';
+
+  @override
+  String get verificationManagementImageLoadFailed => 'Image unavailable';
+
+  @override
+  String get verificationManagementReject => 'Reject';
+
+  @override
+  String get verificationManagementRejectTitle => 'Reject verification?';
+
+  @override
+  String get verificationManagementRejectReasonHint =>
+      'Enter rejection reason…';
+
+  @override
+  String get verificationManagementRejectReasonRequired =>
+      'Please enter a rejection reason.';
 }

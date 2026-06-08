@@ -54,13 +54,16 @@ lib/firebase_options.dart
 .env
 .env.*
 !.env.example
+!.env.flutter.example
 functions/.env
 functions/.env.*
 !functions/.env.example
 functions/.secret.local
 functions/.secret.*
+!functions/.secret.example
 .secret.local
 .secret.*
+!.secret.example
 
 # Node modules
 node_modules/

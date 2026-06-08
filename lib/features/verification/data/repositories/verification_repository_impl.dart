@@ -70,4 +70,53 @@ class VerificationRepositoryImpl implements VerificationRepository {
                 ),
         );
   }
+
+  @override
+  Stream<List<VerificationRequest>> watchPendingPhotoVerificationRequests() {
+    return _firestore
+        .collection(_collection)
+        .where(
+          'verificationType',
+          isEqualTo: VerificationType.photo.firestoreValue,
+        )
+        .where(
+          'status',
+          isEqualTo: VerificationRequestStatus.pending.firestoreValue,
+        )
+        .orderBy('createdAt', descending: false)
+        .snapshots()
+        .map(
+          (snap) => snap.docs
+              .map((doc) =>
+                  VerificationRequest.fromFirestore(doc.id, doc.data()))
+              .toList(),
+        );
+  }
+
+  @override
+  Future<void> approvePhotoVerificationRequest({
+    required String requestId,
+    required String userId,
+    required String reviewerId,
+  }) async {
+    await _firestore.collection(_collection).doc(requestId).update({
+      'status': VerificationRequestStatus.approved.firestoreValue,
+      'reviewerId': reviewerId,
+      'reviewedAt': FieldValue.serverTimestamp(),
+    });
+  }
+
+  @override
+  Future<void> rejectPhotoVerificationRequest({
+    required String requestId,
+    required String reviewerId,
+    required String rejectionReason,
+  }) async {
+    await _firestore.collection(_collection).doc(requestId).update({
+      'status': VerificationRequestStatus.rejected.firestoreValue,
+      'reviewerId': reviewerId,
+      'rejectionReason': rejectionReason,
+      'reviewedAt': FieldValue.serverTimestamp(),
+    });
+  }
 }
